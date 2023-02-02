@@ -79,7 +79,7 @@ import { ExecuteCodeAction } from '@babylonjs/core/Actions/directActions';
         )           
       }
 
-          const CylinderNewTry = (props) => {
+         const CylinderNewTry = (props) => {
 
           const cylRef = useRef(null)
           const highlightLayer = useRef(null);
@@ -107,12 +107,12 @@ import { ExecuteCodeAction } from '@babylonjs/core/Actions/directActions';
         console.log({hasBeenPicked});
       }
      }
-         
+       
      export const Chequerboard10 = () => (
 
        <div style={{flex: 1, display: 'flex'}}>
         <Engine antialias adaptToDeviceRatio canvasId='babylonJS'>
-        <Scene onMeshPicked={onMeshPicked}> 
+        <Scene > 
           
   
           <arcRotateCamera  name="camera1"  target={Vector3.Zero()} alpha={Math.PI / 2} beta={Math.PI / 2} radius={30} />

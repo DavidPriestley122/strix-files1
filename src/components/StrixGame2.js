@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Vector3, Mesh, VertexData} from '@babylonjs/core';
 import { Engine, Scene, useScene, useClick   } from 'react-babylonjs'
 import {Color3} from '@babylonjs/core/Maths/math.color';
+
+
 
 
 
@@ -54,83 +56,47 @@ const BoardMesh = (props) => {
     )
   }
 
- 
-
-  
- /* const locationsOfPieces = [(5.5,0,-1.5),(6.5,0,-0.5),(4.5,0,-2.5) ]  
-  const brownOwlPosition = (6.5,0,-0.5)
-
- 
-
-  const isInArray = locationsOfPieces.indexOf(brownOwlPosition) >-1
-  
-  console.log(isInArray)
-  
-  if (console.log(WithUseClickBrownOwl1().meshPosition)!==null){
-    console.log("hi")
-  }
-*/
-//this function accepts updated value from the onMeshPicked function, providing coordinates of board square for piece to move to.  
+//this function accepts return from the onMeshedPicked function, provides coordinates of board square for piece to move to.  
 
 function squarePositionNew(){
-
-
-   
-    //function here to weed out error clicks by players.
-    //need: array of piece positions
-
-        
-
-       
-
-        
-            
-
-
-        
-
-       // conditional for comparing potential new position with existing one
-
-    //const filteredArr = locationOfPieces.reduce((locationOfPieces, current) => {
-    // const exists = locationOfPieces.find(item => item.id === current.id);
-    //if (exists) {
-    //return acc.concat([current]);
-    // } else {
-    // return acc;
-   //}
-   //}, []);
-
-    //diverson into alternative return, sending self coordinates to clicked pieces
-    // some way to revive the piece if clicked in the right way. 
-
-    
-    return(   
+    if(positionOfSquare[0]===null)
+    return{
+        //empty brackets
+    }
+   else 
+   return(   
      new Vector3.FromArray(positionOfSquare)
-      ) 
-   
+    )   
 }
-  
+
+/*function squarePositionYellowOwlNew(){
+   
+   return(   
+     new Vector3.FromArray(positionOfSquare1)
+    )   
+}
+*/
+
 
 // this function controls the movement of pieces from face to face of the board
 
-function squarePositionRotationNew(){
+/*function squarePositionRotationNew(){
 
-    
-    if(positionOfSquare[0] === 0)
+    if(onMeshPicked()[0] === 0)
     return(
         new Vector3(0,0,-Math.PI/2)
     )
-    else if (positionOfSquare[1]=== 0)
+    else if (onMeshPicked()[1]=== 0)
     return(
         new Vector3(0,0,0)  
     ) 
-    else if (positionOfSquare[2] === 0)
+    else if (onMeshPicked()[2] === 0)
     return(
         new Vector3(-Math.PI/2, 0,0)
     )
-  
+    
 }
-
+*/
 //the following six functions provide the colours for the heads and bodies of the pieces
 
 function headTeamColorBrown() {
@@ -138,11 +104,12 @@ function headTeamColorBrown() {
     Color3.FromInts(88,54,41)
       )
     }
-function headTeamColorYellow() {
+/*function headTeamColorYellow() {
     return(
         Color3.FromInts(255,204,0)   
     )
-}  
+}
+*/  
 function headTeamColorGreen() {
     return(
         Color3.FromInts(8,64,0)   
@@ -154,7 +121,7 @@ function owlBodyColor() {
     Color3.FromInts(204,153,102)
       )
     }
-function kiteBodyColor() {
+/*function kiteBodyColor() {
     return(
     Color3.FromInts(139,0,0)
      )
@@ -165,30 +132,38 @@ function ravenBodyColor() {
         Color3.FromInts(10,10,10)
      )
     }   
-
+*/
 // the following nine functions - one for each piece - control the appearance and movement of the pieces.
 
-/*unction usePreviousMeshPosition(value) {
-    const ref = useRef()
-    useEffect(()=>{
-        ref.current = value
-    },[value])
-    return ref.current
+function squarePositionsNew(){
+    if(positionOfSquare[0]===null)
+    return{
+        //empty brackets
+    }
+   else 
+   return(   
+     new Vector3.FromArray(positionOfSquare)
+    )   
 }
-*/
 
-const  WithUseClickBrownOwl1 = () =>{
-const [meshPosition, setPiecePosition] = useState(new Vector3(6.5,0,-0.5));
-const [meshRotation, setPieceRotation] = useState(Vector3.Zero)
-const [hoot]= useClick(_=> {
-const meshPosition = squarePositionNew();
-const meshRotation = squarePositionRotationNew();
-      setPiecePosition(meshPosition)  
-      setPieceRotation(meshRotation)
+
+/*const  WithUseClickBrownOwl1 = () =>{
+const [MeshPosition, setPiecePosition] = useState(new Vector3(6.5,0,-0.5));
+//const [meshRotation, setPieceRotation] = useState(Vector3.Zero)
+  //const   valueBeforeChange = useRef(brownOwlMeshPosition)    
+//const valueBeforeRotation = useRef(meshRotation)
+const [brownOwlPosition]= useClick(_=> {
+const MeshPosition = squarePositionNew();
+//const meshRotation = squarePositionRotationNew();
+      setPiecePosition(MeshPosition)  
+      //setPieceRotation(meshRotation)
+      });
+         //console.log(valueBeforeChange.current.x)
      
-       });
-        return(
-        <cylinder name = "BrownOwlHollowSleeve" ref = {hoot} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
+
+      return(
+        <cylinder name = "hollow sleeve" ref = {brownOwlPosition} height = {14.2} diameter={0.55} position = {MeshPosition}  >
+
         <cylinder name = "BrownOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
         <cylinder name = "BrownOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
          <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()} />
@@ -197,243 +172,124 @@ const meshRotation = squarePositionRotationNew();
         </cylinder>
              <standardMaterial name = "clear-mat " alpha = {0} />
         </cylinder>
-     )
-  }
- 
-const  WithUseClickBrownKite1 = () =>{
-const [meshPosition, setPiecePosition] = useState(new Vector3(5.5,0,-1.5));
-const [meshRotation, setPieceRotation] = useState(Vector3.Zero)
-const [ref]= useClick(_=> {
-const meshPosition = squarePositionNew();
-const meshRotation = squarePositionRotationNew();
-      setPiecePosition(meshPosition)  
-      setPieceRotation(meshRotation)
+           )
+         }
+
+         */
+
+const WithUseClickWholeBoard = () =>{
+const [[PieceMeshPositions], setPieceMeshPositions] = useState([(new Vector3(1,2,3)), new Vector3(2,3,4)])
+const [piecePositions] = useClick(_=>{
+const PieceMeshPositions = squarePositionsNew();
+     setPieceMeshPositions(PieceMeshPositions)
+})
+
+return (
+    <transformNode ref = {piecePositions}>
+    <transformNode>
+    <cylinder name = "hollow sleeve"  height = {14.2} diameter={0.55} position = {PieceMeshPositions[0]}  >
+
+    <cylinder name = "BrownOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
+    <cylinder name = "BrownOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
+     <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()} />
+    </cylinder>
+    <standardMaterial name = "Owl-mat"  diffuseColor = {owlBodyColor()}/>  
+    </cylinder>
+         <standardMaterial name = "clear-mat " alpha = {0} />
+    </cylinder>   
+    </transformNode>
+    <transformNode>   
+    <cylinder name = "hollow sleeve"  height = {14.2} diameter={0.55} position = {PieceMeshPositions[1]}  >
+
+    <cylinder name = "BrownOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
+    <cylinder name = "BrownOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
+     <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()} />
+    </cylinder>
+    <standardMaterial name = "Owl-mat"  diffuseColor = {owlBodyColor()}/>  
+    </cylinder>
+         <standardMaterial name = "clear-mat " alpha = {0} />
+    </cylinder>  
+    </transformNode>
+  </transformNode>
+)
+}
+
+
+
+
+
+
+/*
+const yellowOwlStartPosition = [0.5,6.5,0]
+const  WithUseClickYellowOwl1 = () =>{
+const [meshPosition, setPiecePosition] = useState(new Vector3((yellowOwlStartPosition[0]), yellowOwlStartPosition[1],yellowOwlStartPosition[2]));
+//const [meshRotation, setPieceRotation] = useState(Vector3.Zero)
       
+//const valueBeforeRotation = useRef(meshRotation)
+const [yellowOwlPosition]= useClick(_=> {
+const meshPosition = squarePositionYellowOwlNew();
+//const meshRotation = squarePositionRotationNew();
+      setPiecePosition(meshPosition)  
+      //setPieceRotation(meshRotation)
       });
-     return(
-     <cylinder name = "BrownKiteHollowSleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-     <cylinder name = "BrownKiteBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-     <cylinder name = "BrownKiteHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-      <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()}/>
-     </cylinder>
-     <standardMaterial name = "Kite-mat"  diffuseColor = {kiteBodyColor()}/>  
-     </cylinder>
-      <standardMaterial name = "clear-mat " alpha = {0} />
-     </cylinder>
-      )
-    }
-const  WithUseClickBrownRaven1 = () =>{
-const [meshPosition, setPiecePosition] = useState(new Vector3(4.5,0,-2.5));
-const [meshRotation, setPieceRotation] = useState(Vector3.Zero)
-const [ref]= useClick(_=> {
-        const meshPosition = squarePositionNew();
-        const meshRotation = squarePositionRotationNew();
-              setPiecePosition(meshPosition)  
-              setPieceRotation(meshRotation)
-      });
+         //console.log(valueBeforeRotation.current.y)
+     
+
       return(
-      <cylinder name = "BrownRavenHollowSleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                
-      <cylinder name = "BrownKiteBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                
-      <cylinder name = "BrownKiteHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-      <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()}/>
-      </cylinder>
-                
-      <standardMaterial name = "Raven-mat"  diffuseColor = {ravenBodyColor()}/>  
-      </cylinder>
-                
-      <standardMaterial name = "clear-mat " alpha = {0} />
-      </cylinder>
-       )
-    }    
+        <cylinder name = "hollow sleeve" ref = {yellowOwlPosition} height = {14.2} diameter={0.55} position = {meshPosition}  >
 
-    const  WithUseClickYellowOwl1 = () =>{
-        const [meshPosition, setPiecePosition] = useState(new Vector3(0.5,6.5,0));
-        const [meshRotation, setPieceRotation] = useState(new Vector3(-Math.PI/2,0,0))
-        const [ref]= useClick(_=> {
-        const meshPosition = squarePositionNew();
-        const meshRotation = squarePositionRotationNew();
-              setPiecePosition(meshPosition)  
-              setPieceRotation(meshRotation)
-              });
-              return(
-              <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-        
-              <cylinder name = "YellowOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-        
-              <cylinder name = "YellowOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-              <standardMaterial name = "YellowTeam-mat" diffuseColor = {headTeamColorYellow()}/>
-              </cylinder>
-        
-              <standardMaterial name = "Owl-mat"  diffuseColor = {owlBodyColor()}/>  
-              </cylinder>
-        
-              <standardMaterial name = "clear-mat " alpha = {0} />
-              </cylinder>
-              )
-            } 
-          
-        const  WithUseClickYellowKite1 = () =>{
-        const [meshPosition, setPiecePosition] = useState(new Vector3(1.5,5.5,0));
-        const [meshRotation, setPieceRotation] = useState(new Vector3(-Math.PI/2,0,0))
-        const [ref]= useClick(_=> {
-        const meshPosition = squarePositionNew();
-        const meshRotation = squarePositionRotationNew();
-              setPiecePosition(meshPosition)  
-              setPieceRotation(meshRotation)
-              });
-              return(
-             <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                
-             <cylinder name = "YellowKiteBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                
-             <cylinder name = "YellowKiteHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-             <standardMaterial name = "YellowTeam-mat" diffuseColor = {headTeamColorYellow()}/>
-             </cylinder>
-                
-             <standardMaterial name = "Kite-mat"  diffuseColor = {kiteBodyColor()}/>  
-             </cylinder>
-                
+        <cylinder name = "BrownOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
+        <cylinder name = "BrownOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
+         <standardMaterial name = "BrownTeam-mat" diffuseColor = {headTeamColorBrown()} />
+        </cylinder>
+        <standardMaterial name = "Owl-mat"  diffuseColor = {owlBodyColor()}/>  
+        </cylinder>
              <standardMaterial name = "clear-mat " alpha = {0} />
-             </cylinder>
-              )
-            }    
-        const  WithUseClickYellowRaven1 = () =>{
-        const [meshPosition, setPiecePosition] = useState(new Vector3(2.5,4.5,0));
-        const [meshRotation, setPieceRotation] = useState(new Vector3(-Math.PI/2,0,0))
-        const [ref]= useClick(_=> {
-                const meshPosition = squarePositionNew();
-                const meshRotation = squarePositionRotationNew();
-                      setPiecePosition(meshPosition)  
-                      setPieceRotation(meshRotation)
-              });
-              return(
-              <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                        
-              <cylinder name = "YellowRavenBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                        
-              <cylinder name = "YellowRavenHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-              <standardMaterial name = "YellowTeam-mat" diffuseColor = {headTeamColorYellow()}/>
-              </cylinder>
-                        
-              <standardMaterial name = "Raven-mat"  diffuseColor = {ravenBodyColor()}/>  
-              </cylinder>
-                        
-              <standardMaterial name = "clear-mat " alpha = {0} />
-              </cylinder>
-               )
-            }    
-        
+        </cylinder>
+           )
+         }
 
-            const  WithUseClickGreenOwl1 = () =>{
-                const [meshPosition, setPiecePosition] = useState(new Vector3(0,0.5,-6.5));
-                const [meshRotation, setPieceRotation] = useState(new Vector3(0,0,-Math.PI/2))
-                const [ref]= useClick(_=> {
-                const meshPosition = squarePositionNew();
-                const meshRotation = squarePositionRotationNew();
-                      setPiecePosition(meshPosition)  
-                      setPieceRotation(meshRotation)
-                      });
-                      return(
-                      <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                
-                      <cylinder name = "GreenOwlBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                
-                      <cylinder name = "GreenOwlHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-                      <standardMaterial name = "GreenTeam-mat" diffuseColor = {headTeamColorGreen()}/>
-                      </cylinder>
-                
-                      <standardMaterial name = "Owl-mat"  diffuseColor = {owlBodyColor()}/>  
-                      </cylinder>
-                
-                      <standardMaterial name = "clear-mat " alpha = {0} />
-                      </cylinder>
-                      )
-                    } 
-                  
-                const  WithUseClickGreenKite1 = () =>{
-                const [meshPosition, setPiecePosition] = useState(new Vector3(0,1.5,-5.5));
-                const [meshRotation, setPieceRotation] = useState(new Vector3(0,0, -Math.PI/2))
-                const [ref]= useClick(_=> {
-                const meshPosition = squarePositionNew();
-                const meshRotation = squarePositionRotationNew();
-                      setPiecePosition(meshPosition)  
-                      setPieceRotation(meshRotation)
-                      });
-                      return(
-                     <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                        
-                     <cylinder name = "GreenKiteBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                        
-                     <cylinder name = "GreenKiteHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-                     <standardMaterial name = "GreenTeam-mat" diffuseColor = {headTeamColorGreen()}/>
-                     </cylinder>
-                        
-                     <standardMaterial name = "Kite-mat"  diffuseColor = {kiteBodyColor()}/>  
-                     </cylinder>
-                        
-                     <standardMaterial name = "clear-mat " alpha = {0} />
-                     </cylinder>
-                      )
-                    }    
-                const  WithUseClickGreenRaven1 = () =>{
-                const [meshPosition, setPiecePosition] = useState(new Vector3(0,2.5,-4.5));
-                const [meshRotation, setPieceRotation] = useState(new Vector3(0,0,-Math.PI/2))
-                const [ref]= useClick(_=> {
-                        const meshPosition = squarePositionNew();
-                        const meshRotation = squarePositionRotationNew();
-                              setPiecePosition(meshPosition)  
-                              setPieceRotation(meshRotation)
-                      });
-                      return(
-                      <cylinder name = "hollow sleeve" ref = {ref} height = {14.2} diameter={0.55} rotation = {meshRotation} position = {meshPosition}>
-                                
-                      <cylinder name = "GreenRavenBody" height={6} diameter = {0.5}   position = {new Vector3(0,3,0)}>
-                                
-                      <cylinder name = "GreenRavenHead" height = {1} diameter = {0.5} position = {new Vector3(0,3.5,0)} >
-                      <standardMaterial name = "GreenTeam-mat" diffuseColor = {headTeamColorGreen()}/>
-                      </cylinder>
-                                
-                      <standardMaterial name = "Raven-mat"  diffuseColor = {ravenBodyColor()}/>  
-                      </cylinder>
-                                
-                      <standardMaterial name = "clear-mat " alpha = {0} />
-                      </cylinder>
-                       )
-                    }    
+  */  
 
- // positionOfSquare stores the position of the picked square on the board, for the piece to read and move to.                   
+
+
+
+
+
+
+// positionOfSquare stores the position of the picked square on the board, for the piece to read and move to.                   
     
-//let  positionOfSquare=[0,0,0]
+//var positionOfSquare=[0,0,0]
 
 // this is to read the position of the picked square on the board
 
 
-let positionOfSquare = null
+var positionOfSquare = [null]
+
+const  onMeshPicked = (pickedMesh)=> {
+  
+if (pickedMesh.name === "meshName1") {
+
+const xValue = pickedMesh.position.x ;
+const yValue = pickedMesh.position.y ;
+const zValue = pickedMesh.position.z ;
+
+positionOfSquare = [xValue,yValue,zValue] 
+
+}
+}
 
 
 
-function  onMeshPicked(pickedMesh){
-        if(pickedMesh.name === "meshName1") {
-        let  xValue1 = pickedMesh.position.x ;
-        let yValue1 = pickedMesh.position.y ;
-        let  zValue1 = pickedMesh.position.z ;
-              
-        positionOfSquare = [xValue1,yValue1,zValue1] 
-        console.log(positionOfSquare)
-         }
-    }
-
+     
     
- 
+     
 
-
- export const StrixGame1= () => {
+export const StrixGame2= () => {
     return(
         <div className="App">
            <Engine antialias adaptToDeviceRatio canvasId='babylonJS'>
-            <Scene onMeshPicked= {onMeshPicked}>
+            <Scene onMeshPicked= {onMeshPicked} >
              <arcRotateCamera  name="camera1"  target={new Vector3(0.5,-0.5,0)} alpha={-Math.PI/4 } beta={Math.PI / 3} radius={30} />
              <hemisphericLight name='light1' intensity={0.7} direction={Vector3.Up()} />
              <hemisphericLight name='light1' intensity={0.7} direction={Vector3.Down()} />
@@ -443,7 +299,7 @@ function  onMeshPicked(pickedMesh){
              <box      name = "greenSiding1" rotation = {new Vector3(0,0,0)}    scaling = {new Vector3(7.5,.1,.5)} position = {new Vector3(3.25,7.02,.25)}>
              <standardMaterial name = "sidingColor" diffuseColor= {headTeamColorGreen()}/>
              </box>
-             <box      name = "greenSiding2" rotation = {new Vector3(0,Math.PI/2,0)}    scaling = {new Vector3(7,.1,.5)} position = {new Vector3(-.25,7.02,-3.5)}>
+             <box      name = "grCiding2" rotation = {new Vector3(0,Math.PI/2,0)}    scaling = {new Vector3(7,.1,.5)} position = {new Vector3(-.25,7.02,-3.5)}>
              <standardMaterial name = "sidingColor" diffuseColor= {headTeamColorGreen()}/>
              </box> 
              <box      name = "greenSiding3" rotation = {new Vector3(0,0,Math.PI/2,0)}    scaling = {new Vector3(7,.1,.5)} position = {new Vector3(7.02,3.5,0.25)}>
@@ -656,18 +512,11 @@ function  onMeshPicked(pickedMesh){
  
              </transformNode>     
             
-              <WithUseClickBrownOwl1/>
-              <WithUseClickBrownKite1/>
-              <WithUseClickBrownRaven1/>
-              <WithUseClickYellowOwl1/>
-              <WithUseClickYellowKite1/>
-              <WithUseClickYellowRaven1/>
-              <WithUseClickGreenOwl1/>
-              <WithUseClickGreenKite1/>
-              <WithUseClickGreenRaven1/>
+            
+              <WithUseClickWholeBoard/>
+
               
-             
-             
+                        
              
 
             

@@ -73,9 +73,10 @@ const CylinderNewTry = (props) => {
 const [clicked, setClicked] = useState(false);
     useClick(()=> setClicked((clicked)=>!clicked),cylRef)
 
-  if  (clicked)
+  if  (clicked){
      text1= "clicked";
      console.log ({text1})
+  }
                                               
   return (
       <cylinder name= "myCylinder1" ref = {cylRef} diameter = {0.5}   position = {new Vector3(1,2,1)} text1={props.text1} height= {3} >

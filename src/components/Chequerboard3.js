@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Vector3, Mesh, VertexData} from '@babylonjs/core';
 import { Engine, Scene, useScene, useClick } from 'react-babylonjs'
-import {Color3} from '@babylonjs/core/Maths/math.color';
+import {Color3, DirectonalLight} from '@babylonjs/core/Maths/math.color';
 import { Control } from "@babylonjs/gui/2D/controls/control";
 import { InputText } from "@babylonjs/gui/2D/controls/inputText";
 
@@ -204,7 +204,8 @@ export const Chequerboard3 = () => {
             <hemisphericLight name='light1' intensity={0.7} direction={Vector3.Up()} />
             <hemisphericLight name='light1' intensity={0.7} direction={Vector3.Down()} />
 
-            <transformNode  name = "transformNode1">
+
+                        <transformNode  name = "transformNode1">
             {ThreeBoard()}
             </transformNode>
 
