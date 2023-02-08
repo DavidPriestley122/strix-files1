@@ -7,7 +7,7 @@ import {ExecuteCodeAction } from '@babylonjs/core/Actions/directActions';
 
 
 //This var changes value depending on which piece is clicked, and determines which piece is generated when a square is clicked. 
-var pieceIndex =0;
+let pieceIndex =0;
 
 // the following three functions are called by the actionManagers, to generate the different pieces. 
 function OwlMaker(pieceName, piecePosition, pieceRotation,TeamMat) {
@@ -902,39 +902,40 @@ export const StrixGameVersion2= () => (
 
 
 <transformNode  name = "boardMover" position = {new Vector3(0,-5,0,)}>
-<box onCreated =  {OnBoxesCreatedBlackOuterYellowFace}>
+
+<box name = "boxes0" onCreated =  {OnBoxesCreatedBlackOuterYellowFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedBlackInnerYellowFace}>
+<box name ="boxes1" onCreated =  {OnBoxesCreatedBlackInnerYellowFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedWhiteYellowFace}>
+<box name = "boxes2" onCreated =  {OnBoxesCreatedWhiteYellowFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedBlackOuterGreenFace}>
+<box name = "boxes3" onCreated =  {OnBoxesCreatedBlackOuterGreenFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedBlackInnerGreenFace}>
+<box name = "boxes4" onCreated =  {OnBoxesCreatedBlackInnerGreenFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedWhiteGreenFace}>
+<box name = "boxes5" onCreated =  {OnBoxesCreatedWhiteGreenFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedBlackOuterBrownFace}>
+<box name = "boxes6" onCreated =  {OnBoxesCreatedBlackOuterBrownFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedBlackInnerBrownFace}>
+<box name = "boxes7" onCreated =  {OnBoxesCreatedBlackInnerBrownFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 
-<box onCreated =  {OnBoxesCreatedWhiteBrownFace}>
+<box name = "boxes8"  onCreated =  {OnBoxesCreatedWhiteBrownFace}>
 <standardMaterial name = "clear-mat " alpha = {0} />
 </box> 
 </transformNode>
