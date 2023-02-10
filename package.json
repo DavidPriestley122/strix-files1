@@ -1,7 +1,7 @@
 {
   "name": "strixmark3",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@babylonjs/gui": "^5.17.1",
     "@emotion/react": "^11.10.5",
