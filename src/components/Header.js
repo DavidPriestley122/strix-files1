@@ -9,10 +9,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
 
+
   
 export default function Header() {
   return (
-        <AppBar className= "appBar" style = {{background: '#930a20'}} position="static">
+        <AppBar className= "appBar" style = {{background: '#930a20', width:'100%'}} position="static">
         <Toolbar>
            {/*Inside the IconButton, we 
            can render various icons*/}
@@ -31,7 +32,7 @@ export default function Header() {
            default font weights and sizes */}
   
           <Typography variant="h4" 
-            component="div" sx={{ flexGrow: 1 }}>
+            component="div" sx={{ flexGrow: 1, fontWeight: 'bold', fontSize: 40}}>
             STRIX
           </Typography>
           <Button color="inherit">Login</Button>

@@ -46,8 +46,8 @@ export default PDFManager
 
   return (
     <>
-      <Document file="StrixRules.pdf" onLoadSuccess={onDocumentLoadSuccess} >
-        <Page  style={{height:200}} pageNumber={pageNumber} />
+      <Document file="The Rules of Strix.pdf" onLoadSuccess={onDocumentLoadSuccess} >
+        <Page    pageNumber={pageNumber} />
       </Document>
 
       <div>

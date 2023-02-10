@@ -6,7 +6,7 @@ import {ActionManager } from '@babylonjs/core/Actions/actionManager';
 import {ExecuteCodeAction } from '@babylonjs/core/Actions/directActions';
 
 
-//This var changes value depending on which piece is clicked, and determines which piece is generated when a square is clicked. 
+//This variable changes value depending on which piece is clicked, and determines which piece is generated when a square is clicked. 
 let pieceIndex =0;
 
 // the following three functions are called by the actionManagers, to generate the different pieces. 
