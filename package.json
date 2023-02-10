@@ -1,7 +1,7 @@
 {
   "name": "strixmark3",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@babylonjs/gui": "^5.17.1",
     "@emotion/react": "^11.10.5",
@@ -22,6 +22,7 @@
     "web-vitals": "^2.1.4",
     "homepage": "https://davidpriestley122.github.io/strix-files1"
   },
+
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
