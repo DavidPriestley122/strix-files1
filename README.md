@@ -1,1 +1,0 @@
-# Files for the creation of an online version of the game Strix.
