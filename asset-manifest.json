@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.034647f8.css",
-    "main.js": "/static/js/main.19711c8b.js",
-    "static/js/787.82c51e66.chunk.js": "/static/js/787.82c51e66.chunk.js",
-    "static/media/pdf.worker.js": "/static/media/pdf.worker.f572f9e7a9a82213ef76.js",
-    "static/media/StrixInSolar1bandws.jpg": "/static/media/StrixInSolar1bandws.02379d42b5707a25c733.jpg",
-    "index.html": "/index.html",
-    "main.034647f8.css.map": "/static/css/main.034647f8.css.map",
-    "main.19711c8b.js.map": "/static/js/main.19711c8b.js.map",
-    "787.82c51e66.chunk.js.map": "/static/js/787.82c51e66.chunk.js.map"
+    "main.css": "/strix-files1/static/css/main.034647f8.css",
+    "main.js": "/strix-files1/static/js/main.390dc4cc.js",
+    "static/js/787.82c51e66.chunk.js": "/strix-files1/static/js/787.82c51e66.chunk.js",
+    "static/media/pdf.worker.js": "/strix-files1/static/media/pdf.worker.f572f9e7a9a82213ef76.js",
+    "static/media/StrixInSolar1bandws.jpg": "/strix-files1/static/media/StrixInSolar1bandws.02379d42b5707a25c733.jpg",
+    "index.html": "/strix-files1/index.html",
+    "main.034647f8.css.map": "/strix-files1/static/css/main.034647f8.css.map",
+    "main.390dc4cc.js.map": "/strix-files1/static/js/main.390dc4cc.js.map",
+    "787.82c51e66.chunk.js.map": "/strix-files1/static/js/787.82c51e66.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.034647f8.css",
-    "static/js/main.19711c8b.js"
+    "static/js/main.390dc4cc.js"
   ]
 }
