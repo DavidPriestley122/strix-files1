@@ -1,8 +1,10 @@
+import React from 'react'
 import HeaderImage from './components/HeaderImage'
 import Header from './components/Header'
+import {AboutStrix} from './components/AboutStrix'
 import {StrixGameVersion2} from './components/StrixGameVersion2'
-import PDFManager from './components/PDFManager'
 import "./App.css"
+
 
 
 function App() {
@@ -14,12 +16,11 @@ function App() {
            <div className="game">
               <StrixGameVersion2/> 
            </div> 
+      
+           <AboutStrix/>
 
-           <h1 className = "instructions" > Instructions</h1>
-           <p className = "instruction-text1"> To move a piece, click on it, then click the desired destination square. </p>
-           <p className = "instruction-text2"> To take a piece, click on it.   </p>
-        
-           <PDFManager />
+                  
+          
  </div>
    );
 }

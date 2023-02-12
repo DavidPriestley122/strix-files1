@@ -13,7 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
   
 export default function Header() {
   return (
-        <AppBar className= "appBar" style = {{background: '#930a20', width:'100%'}} position="static">
+        <AppBar className= "appBar" style = {{background: '#790e3c', width:'100%'}} position="static">
         <Toolbar>
            {/*Inside the IconButton, we 
            can render various icons*/}
