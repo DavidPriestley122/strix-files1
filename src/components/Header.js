@@ -32,7 +32,7 @@ export default function Header() {
            default font weights and sizes */}
   
           <Typography variant="h4" 
-            component="div" sx={{ flexGrow: 1, fontWeight: 'bold', fontSize: 40}}>
+            component="div" sx={{ flexGrow: 1, fontWeight: 'bold', fontSize: 40, textAlign: 'center'}}>
             STRIX
           </Typography>
           <Button color="inherit">Login</Button>

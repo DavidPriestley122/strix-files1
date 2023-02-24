@@ -1,34 +1,13 @@
 .App {
   width: 100%;
-  background-color:rgb(39, 94, 22);
-  text-align: center;
+  
   font-size: 2rem;
-  color:rgb(200, 255, 0) ;
+  color:rgb(0, 255, 102) ;
 }
 
-.Header{
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  background-color: blue;
-}
 
-.headerImage {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-}
 
-.game {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-}
-
-.instructions{
+/*.instructions{
   font-size: 1.5rem;
 }
 .instruction-text1{
@@ -39,7 +18,7 @@
 }
 
 
-/*.react-pdf_Page_canvas {
+.react-pdf_Page_canvas {
   margin-right: auto;
   margin-left:auto;
   height:100% !important;
@@ -47,7 +26,7 @@
 }
 */
 
-.react-pdf__Page__canvas {
+/*.react-pdf__Page__canvas {
   width:50% !important;
   height: 50% ! important;
   padding-top: 20%;
@@ -62,5 +41,5 @@
   height: 30% ! important;
   background-color: rgb(39,94,22);
 } 
-
+*/
 

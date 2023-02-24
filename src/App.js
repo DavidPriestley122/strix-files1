@@ -3,7 +3,7 @@ import HeaderImage from './components/HeaderImage'
 import Header from './components/Header'
 import {AboutStrix} from './components/AboutStrix'
 import {StrixGameVersion2} from './components/StrixGameVersion2'
-import "./App.css"
+
 
 
 
@@ -16,6 +16,8 @@ function App() {
            <div className="game">
               <StrixGameVersion2/> 
            </div> 
+
+           <br/>
       
            <AboutStrix/>
 
