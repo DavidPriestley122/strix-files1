@@ -22,6 +22,9 @@ export const Instructions = () => {
         <Typography variant = 'body1' padding = {1}>
           Three teams, Brown, Yellow, Green, take turns in that order. 
         </Typography>
+        <Typography variant = 'body1' padding = {1}>
+        Pieces must be able to stand freely, without clashing (in the physical game) or intersecting (in the online version)
+        </Typography>
         <Typography variant = 'body1' padding = {1} >
           All pieces move orthogonally, on face and from face to face, as far as they like, apart from the Owl which moves only one square at a time.
         </Typography>
