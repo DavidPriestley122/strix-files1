@@ -1,7 +1,7 @@
 .App {
   width: 100%;
-  
   font-size: 2rem;
+  background-color: rgb(8,64,0) ;
   color:rgb(0, 255, 102) ;
 }
 

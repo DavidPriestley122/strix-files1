@@ -3,7 +3,8 @@ import HeaderImage from './components/HeaderImage'
 import Header from './components/Header'
 import {AboutStrix} from './components/AboutStrix'
 import {StrixGameVersion2} from './components/StrixGameVersion2'
-
+import {Instructions} from './components/Instructions'
+import './App.css'
 
 
 
@@ -12,18 +13,22 @@ function App() {
   <div  className="App">
       <Header className="Header"/>
       <HeaderImage className="HeaderImage"/>
-      
-           <div className="game">
-              <StrixGameVersion2/> 
-           </div> 
 
-           <br/>
+      <AboutStrix/>
+     
+      <br/>
       
-           <AboutStrix/>
+      <div className="game">
+          <StrixGameVersion2/> 
+      </div> 
 
-                  
-          
- </div>
+      <br/>
+
+      <Instructions/>
+
+      <br/>
+
+   </div>
    );
 }
 

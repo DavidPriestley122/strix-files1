@@ -1,17 +1,16 @@
 import React from 'react'
 import {Typography} from "@mui/material"
 import {Box, Paper, Grid, Card, CardMedia}from "@mui/material"
-import StrixInSolar1bandws from  "../images/StrixInSolar1bandws.jpg"
 import StrixHeader1 from "../images/StrixHeader1.jpg"
 
 export const AboutStrix = () => {
   return (
     
-  <Paper sx={{padding: '20px', height: '100', width: '100%', margin: 'auto'}}  elevation={4}>
+  <Paper sx={{padding: '2px', height: '100', width: '100%', backgroundColor: '#cc9966'}}  elevation={4}>
 
-    <Grid container my={4} spacing = {2}>
-              <Grid item xs={8} >
-                   <Box sx={{backgroundColor:'#790e3c', color: 'white', height: '250px', width: '100%'}} >
+    <Grid container my={2} spacing = {1}>
+              <Grid item xs={9}  >
+                   <Box sx={{backgroundColor:'#790e3c', color: 'white', height: '250px', width: '98%'}} >
                        <Typography variant = 'body1' padding = {2}>
                      
 STRIX is a game for three players, played in three dimensions. 
@@ -31,7 +30,7 @@ to the board's centre — the 'Owl's Nest' — while gathering the greatest numb
                    </Box> 
                 </Grid>
 
-             <Grid item xs = {4}>
+             <Grid item xs = {3}>
                <Box sx={{ height: '100px', width: '250px'}} >
                      <Card>
                        <CardMedia component = 'img' height= "250px" width = '100%' image={StrixHeader1} />
